@@ -1,7 +1,7 @@
 # about-development
 assignment
 
-Methodology) Agile VS Waterfall
+**Methodology) Agile VS Waterfall**
 https://www.ciokorea.com/news/166830
 방법론은 프로잭트 유형, 팀 구조, 역량 등의 요인에 따라 유형이 달라진다.
 
@@ -33,7 +33,7 @@ https://www.ciokorea.com/news/166830
 
 결론) 워터폴 팀은 프로세스와 절차가 잘 정착된 환경에서 업무를 능숙하게 처리. 이외적인 상황이 없을 때 능률이 오른다. 체계적이고 사전 합의된 요구사항을 충족하는데 초점. 워터폴 팀은 다양한 영역의 사람들과 능숙하게 협업할 수 있어야하며 정책이나 엄격한 가이드라인도 잘 준수한다.
 
-The Twelve-Factor App
+**The Twelve-Factor App**
 WebApp / SaaS
 최근 소프트웨어들은 서비스 형태로 제공되는 것이 일반적
 12-Factor App Methodology
@@ -59,10 +59,10 @@ WebApp / SaaS
 11. 로그: 로그를 이벤트 스트림으로 취급
 12. admin 프로세스: admin/maintenance 작업을 일회성 프로세스 실행
 
-Restful API) URL Pattern
+**Restful API) URL Pattern**
 
 
-Transaction) ACID
+**Transaction) ACID**
 https://victorydntmd.tistory.com/129
 트랜잭션이란 질의(query)를 하나의 묶음 처리해서 만약 중간에 실행이 중단됐을 경우, 처음부터 다시 실행하는 Rollback을 수행하고, 오류없이 실행을 마치면 commit을 하는 실행 단위를 의미합니다.
 즉, 한 번 질의가 실행되면 질의가 모두 수행되거나 모두 수행되지 않는 작업수행의 논리적 단위입니다.
