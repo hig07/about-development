@@ -59,8 +59,47 @@ WebApp / SaaS
 11. 로그: 로그를 이벤트 스트림으로 취급
 12. admin 프로세스: admin/maintenance 작업을 일회성 프로세스 실행
 
-**Restful API) URL Pattern**
+**Restful API) URI Pattern**
+API) 사용자 또는 클라이언트, 그리고 사용자와 클라이언트가 얻으려 하는 리소스 사이의 조정자. 조직이 보안 및 제어를 유지관리하면서 리소스와 정보를 공유할 수 있는 방법. 리소스 검색 방법 또는 리소스의 출처에 대한 지식 없이도 사용이 가능
 
+Representational State Transfer Application Programming Interface
+Rest 아키텍처 제약조건을 준수하는 API, App SW를 구축하고 통합하는 정의 및 프로토콜 세트
+
+REST API 구성
+1. 자원(Resource): URI
+2. 행위(Verb): HTTP Method
+3. 표현(Representations)
+
+REST 특징
+1. Uniform(유니폼 인터페이스): URI로 지정한 리소스에 대한 조작을 통일되고 한정적인 인터페이스로 수행하는 아키텍처 스타일
+2. Stateless(무상태성): 작업을 위한 상태정보를 따로 저장하고 관리하지 않는다. 세션 정보나 쿠키 정보를 별도로 저장하고 관리하지 않기 때문에 API서버는 들어오는 요청을 단순 처리만 하면 된다. 따라서 서비스의 자유도가 높아지고 서버에서 불필요한 정보를 관리하지 않기에 구현이 단순
+3. Cacheable(캐시 가능): HTTP 기존 웹 표준을 그대로 사용, 웹에서 사용하는 기존 인프라 그대로 활용 가능. 따라서 HTTP의 캐싱 기능 적용 가능. -> Last-Modified 태그나 E-Tag 이용
+4. Self-Descriptiveness(자체 표현 구조): REST API 메시지만 보고도 쉽게 이해할 수 있는 자체 표현 구조
+5. Client-Server 구조: REST 서버는 API 제공, 클라이언트는 사용자 인증이나 컨텍스트 등 직접 관리하는 구조로 각각의 역할이 구분되기에 C-S 개발 내용이 명확, 의존성이 줄어듦
+6. 계층형 구조: 보안, 로드 밸런싱,  암호화 계층을 추가해 구조상의 유연성을 둘 수 있고 PROXY, 게이트웨이 같은 네트워크 기반의 중간매체 사용 가능
+
+REST API 디자인 가이드
+1. URI는 정보의 자원을 표현해야 함
+2. 자원에 대한 행위는 HTTP Method(get, post, put, delete)로 표현
+    1. post: 해당 URI를 요청하면 리소스 생성(회원 추가)
+    2. get: 해당 리소스 조회, 해당 document에 대한 자세한 정보를 가져온다.(회원 정보)
+    3. put: 해당 리소스 수정
+    4. delete: 해당 리소스 삭제
+URI 설계 시 주의점
+1. 슬래시(/) 구분자는 계층 관계를 나타낼 때 사용
+2. URI 마지막 문자로 /를 포함하지 않는다.
+3. 하이픈(-)은 URI 가독성을 높이는데 사용
+4. 밑줄(_)은 URI에 사용하지 않는다
+5. URI 경로에는 소문자가 적합
+6. 파일 확장자는 URI에 포함시키지 않는다.(Accept Header 사용)
+ 	-http://restapi.example.com/members/soccer/345/photo.jpg (X)
+	-GET / members/soccer/345/photo HTTP/1.1 Host: 				restapi.example.com Accept: image/jpg (O)
+7. URI는 동사보다는 명사 사용
+8. 행위를 포함하지 않는다.
+	-Bad Example http://khj93.com/delete-post/1  
+	-Good Example  http://khj93.com/post/1  
+
+모든 CRUD 기능을 POST로 처리 하는 API 혹은 URI 규칙을 올바르게 지키지 않은 API는 설계 규칙을 올바르게 지키지 못한 시스템이며 REST API를 사용하였지만 RESTful 하지 못한 시스템이다.
 
 **Transaction) ACID**
 https://victorydntmd.tistory.com/129
